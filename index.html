@@ -1,16 +1,38 @@
+<!--
+
+    Summary of the code:  There are a few changes that need to be made here in the HTML to have it cleanly structured.  Here's what is noted:
+    1. The code is filled with divs.  Even though it does work, this is going to be a headache for another developer to follow.  For each
+    section(s), I've decided to change the name for a SEMANTIC element such as Header, Section, etc.
+    2. The title of the website was changed
+    3. Each picture has an "alt" attribute.  If the web fails to load the image, there will be a message there instead
+    4. On the Aside section, there was a change on the format with h3.  It is changed to h2 for consistancy
+
+    Most of the coding works as intended.  This is to make it a bit neater.  The majority of the changes of the structure will be found in the .css file
+
+-->
+
 <!DOCTYPE html>
 <html lang="en-us">
 
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>website</title>
+    
+    <!-- The title for this was just 'website'.  I changed it to a more appropriate title for Horiseon -->
+
+    <title>Horiseon Home Page</title>
 </head>
 
 <body>
-    <div class="header">
+
+    <!--I'm going to change the "div class = "header" to just a header -->
+
+    <header>
         <h1>Hori<span class="seo">seo</span>n</h1>
-        <div>
+
+        <!--Change the "div" to "nav" -->
+        
+        <nav>
             <ul>
                 <li>
                     <a href="#search-engine-optimization">Search Engine Optimization</a>
@@ -22,61 +44,103 @@
                     <a href="#social-media-marketing">Social Media Marketing</a>
                 </li>
             </ul>
-        </div>
-    </div>
-    <div class="hero"></div>
-    <div class="content">
-        <div class="search-engine-optimization">
-            <img src="./assets/images/search-engine-optimization.jpg" class="float-left" />
+        </nav>
+
+    </header>
+
+    <!-- 
+
+        There are more changes that we need to make.  There are "div"s, but some of them can be applied as "section" instead.  On the main ones, I'm going to change them to "section".  
+        I'll write a comment on what part are we changing. 
+        One more thing:  Inside this section has an alt as well.  If the picture can't be loaded from the css, then it'll show as an alt message instead
+
+    -->
+
+    <!-- Change div here to section -->
+
+    <section class="hero" alt="Picture of a Meeting"></section>
+
+    <!-- Change div here to section -->
+
+    <section class="content">
+
+        <!--
+            On this section, we need to change some of these from "div" to "article" 
+            Three Images are also found in this section.  I have added all three as alts
+        -->
+
+        <article class="search-engine-optimization">
+            <img src="./assets/images/search-engine-optimization.jpg" class="float-left" alt = "Notebook on table with the word 'SEO' as a title" />
             <h2>Search Engine Optimization</h2>
             <p>
                 The dominance of mobile internet use means that users are searching for the right business as they travel, shop, or sit on their couch at home. Search Engine Optimization (SEO) allows you to increase your visibility and find the right customers for your business.
             </p>
-        </div>
-        <div id="online-reputation-management" class="online-reputation-management">
-            <img src="./assets/images/online-reputation-management.jpg" class="float-right" />
+        </article>
+
+        <!-- Change "div" to "article" -->
+
+        <article id="online-reputation-management" class="online-reputation-management">
+            <img src="./assets/images/online-reputation-management.jpg" class="float-right" alt = "Laptop with the Title 'Reputation' Displayed" />
             <h2>Online Reputation Management</h2>
             <p>
                 The web is full of opinions, and some of these can be negative. Social media allows anyone with an internet connection to say whatever they want about your business. Online Reputation Management gives you the control over what potential customers see when they search for your business.
             </p>
-        </div>
-        <div id="social-media-marketing" class="social-media-marketing">
-            <img src="./assets/images/social-media-marketing.jpg" class="float-left" />
+        </article>
+
+        <!-- Change "div" to "article" -->
+
+        <article id="social-media-marketing" class="social-media-marketing">
+            <img src="./assets/images/social-media-marketing.jpg" class="float-left" alt = "Social Media Network Icons" />
             <h2>Social Media Marketing</h2>
             <p>
                 Social media continues to have a sizable influence on buying habits. Social media marketing helps you determine which platforms are suited to your brand, using analytics to find the right markets and increase your lead generation.
             </p>
-        </div>
-    </div>
-    <div class="benefits">
+        </article>
+
+    </section>
+
+    <!-- Change div here to section -->
+
+    <aside class="benefits">
         <div class="benefit-lead">
-            <h3>Lead Generation</h3>
-            <img src="./assets/images/lead-generation.png" />
+
+            <!-- 
+                There's something small that needs to be changed.  Since this is a new section, and we are using h1 as the main title, h2 is still open.  
+                We'll use that instead of h3 that is on this 
+                One thing, too:  There are three icons here that need to have an alt in case the image can't be loaded.
+                
+            -->
+
+            <h2>Lead Generation</h2>
+            <img src="./assets/images/lead-generation.png" alt="Gears to Beaker to Coin Icon" />
             <p>
                 Inbound strategies for lead generation require less work for your business, bringing customers directly to your website.
             </p>
         </div>
         <div class="benefit-brand">
-            <h3>Brand Awareness</h3>
-            <img src="./assets/images/brand-awareness.png" />
+            <h2>Brand Awareness</h2>
+            <img src="./assets/images/brand-awareness.png" alt = "Lightbulb Signal" />
             <p>
                 Users find your business through paid and organic searches, increasing the search ranking and visibility for your business.
             </p>
         </div>
         <div class="benefit-cost">
-            <h3>Cost Management</h3>
-            <img src="./assets/images/cost-management.png"></img>
+            <h2>Cost Management</h2>
+            <img src="./assets/images/cost-management.png" alt = "Three Coins with a Gear at the Back" ></img>
             <p>
                 As the search ranking for your business increases, your advertising costs decrease, and you no longer need to advertise your page.
             </p>
         </div>
-    </div>
-    <div class="footer">
+    </aside>
+
+    <!-- I'm going to change the class "footer" to an actual tag -->
+
+    <footer>
         <h2>Made with ❤️️ by Horiseon</h2>
         <p>
             &copy; 2019 Horiseon Social Solution Services, Inc.
         </p>
-    </div>
+    </footer>
 </body>
 
 </html>

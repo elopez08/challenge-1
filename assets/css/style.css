@@ -1,53 +1,47 @@
+/*
+    While everything in this code is the way it should and could technically work, one of the things that is noted is the structure of the code.
+    The structure will take last as its priority, so if anything, we need to have a global decleration to fall on first.  I'm going to move the
+    code that involves the body, "a", and "p" where the root is.  That way, when the code is read, any of those structures are implemented first.
+    Afterwards, should the code need to be restructured again from their own specifications, it can be written on its own section: 
+
+*/
+
+/*
+    In summary, I'm applying the following::
+    1. I'm changing the order that is being read.  It'll start out with the universal declaration with *, body, a, p, and :root
+    2. The next on the order will be then proceeded with the header
+    3. Banner section involving the imgage is next
+    4. Next is the content section
+    5. Next is the Aside section
+    6. The final section is going to be footer section
+
+    That's all on the positioning.  However, there are multiple things that need to be changed.  Here's the next thing that is noted::
+
+    1. I'm adding root functions for the main color white, the font family, and display inline to shorten the code
+    2. Any repeat values that follow the exact structure will then be grouped in commas.  This will ensure that the element
+    follows exactly as its initial declaration
+
+    That's all on the grouping and declaration.  There's one more thing that needs to be changed::
+    1. On the Aside section, there was a declaration of h3.  However, WITHIN this section, h2 was skipped.  I've changed the value from
+    h3 to h2 to follow the header structural format (Example: h1->h2->h3).
+
+*/
+
+
+/* Univsersal Selector */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-/*There are numerous of codes that are repeating.  What I'm doing here is replacing that said repeat with a root.  Use ctrl+h to replace said text with the copy that's by the comment*/
-:root {
-    --main-white-color: #ffffff; /*use:  var(--main-white-color); */
-    --font-family-one: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /*use: var(--font-family-one); */
-    --display-inline: inline-block; /*use: var(--display-inline); */
-
-}
+/* Declaring the body of the code first: */
 
 body {
     background-color: #d9dcd6;
 }
 
-.header {
-    padding: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #2a607c;
-    color: var(--main-white-color);
-}
-
-.header h1 {
-    display: var(--display-inline);
-    font-size: 48px;
-}
-
-.header h1 .seo {
-    color: #d9dcd6;
-}
-
-.header div {
-    padding-top: 15px;
-    margin-right: 20px;
-    float: right;
-    font-family: var(--font-family-one);
-    font-size: 20px;
-}
-
-.header div ul {
-    list-style-type: none;
-}
-
-.header div ul li {
-    display: var(--display-inline);
-    margin-left: 25px;
-}
+/* Found throughout the code on specific elements: */
 
 a {
     color: var(--main-white-color);
@@ -58,6 +52,74 @@ p {
     font-size: 16px;
 }
 
+/* Roots that are used to minimize the code being used: */
+
+/* 
+    There are numerous of codes that are repeating.  What I'm doing here is replacing that said repeat with a root.  Use ctrl+h to replace said text with the copy that's by the comment 
+*/
+
+:root {
+    --main-white-color: #ffffff; /*use:  var(--main-white-color); */
+    --font-family-one: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /*use: var(--font-family-one); */
+    --display-inline: inline-block; /*use: var(--display-inline); */
+
+}
+
+/* 
+    There needs to be identification on the structural order.  I'm going to regroup it so that when the code is
+    being read, we're going to fllow the structural format.  I'm going to declare the header, section, and aside
+    Originally, the 'body' tag was first.  It's a bit out of order, so I moved it below the headers 
+    
+*/
+
+
+/* I'm going to change the following ".header" 's to just "header" since we have this as a semantic element */
+
+/* In addition to this, the header is always first, so that would be declared first on the following: */
+
+/* ============== Start of the Header section ============== */
+
+header {
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #2a607c;
+    color: var(--main-white-color);
+}
+
+header h1 {
+    display: var(--display-inline);
+    font-size: 48px;
+}
+
+header h1 .seo {
+    color: #d9dcd6;
+}
+
+/*Going to change "div" to "nav" */
+
+header nav {
+    padding-top: 15px;
+    margin-right: 20px;
+    float: right;
+    font-family: var(--font-family-one);
+    font-size: 20px;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: var(--display-inline);
+    margin-left: 25px;
+}
+
+/* ============== This ends the header section ============== */
+
+/* The next section is declaring the image.  This is the following structure: */
+
+/* ============== Start of the banner section ============== */
+
 .hero {
     height: 800px;
     width: 100%;
@@ -67,15 +129,11 @@ p {
     background-position: center;
 }
 
-.float-left {
-    float: left;
-    margin-right: 25px;
-}
+/* ============== End of the banner section ============== */
 
-.float-right {
-    float: right;
-    margin-left: 25px;
-}
+/* According to the structure of the code, the next should be 'content'.  I'm going to move this next and place it here: */
+
+/* ============== Start of the Content Section ============== */
 
 .content {
     width: 75%;
@@ -83,84 +141,17 @@ p {
     margin-left: 20px;
 }
 
-.benefits {
-    margin-right: 20px;
-    padding: 20px;
-    clear: both;
-    float: right;
-    width: 20%;
-    height: 100%;
-    font-family: var(--font-family-one);
-    background-color: #2589bd;
-}
-
-/*I'm going to regroup this, too*/
-
-.benefit-lead , .benefit-brand , .benefit-cost {
-    margin-bottom: 32px;
-    color: var(--main-white-color);
-}
+/* The next of structures that need to be put in is the one dealing with search-optimization.  This is found in the article tag in the HTML */
 
 /*
 
-.benefit-brand {
-    margin-bottom: 32px;
-    color: var(--main-white-color);
-}
-
-.benefit-cost {
-    margin-bottom: 32px;
-    color: var(--main-white-color);
-}
-
+    On this particular format, I've noitced that the three codes are all the same.  Rather than having them separated to each of their own
+    elements, I've decided to group them.  By declaraing the name of the element with a period out in front, followed by a comma, I can
+    do it again starting wtih the period and declared element name.  This will indicate the elements with different names will also be
+    using the same structure as the previous to avoid repeating 
+    
 */
 
-/* This is also going to be regrouped */
-
-.benefit-lead h3 , .benefit-brand h3 , .benefit-cost h3 {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-/*
-
-.benefit-brand h3 {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.benefit-cost h3 {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-*/
-
-/* This is the first I'm grouping since they are the same.  The search has the more comments on the why */
-
-.benefit-lead img , .benefit-brand img ,  .benefit-cost img {
-    display: block;
-    margin: 10px auto;
-    max-width: 150px;
-}
-
-/*
-
-.benefit-brand img {
-    display: block;
-    margin: 10px auto;
-    max-width: 150px;
-}
-
-.benefit-cost img {
-    display: block;
-    margin: 10px auto;
-    max-width: 150px;
-}
-
-*/
-
-/*I'm going to combine the online-reputation-management and social-media-marketing because they have the same properties*/
 .search-engine-optimization , .online-reputation-management , .social-media-marketing {
     margin-bottom: 20px;
     padding: 50px;
@@ -169,6 +160,10 @@ p {
     background-color: #0072bb;
     color: var(--main-white-color);
 }
+
+/* 
+    The following is for the code that was originally found, but will be commented out to shorten the code a bit: 
+*/
 
 /*
 
@@ -192,7 +187,23 @@ p {
 
 */
 
-/*I'm also combining online-reputation-management with social-media-marketing*/
+/* The next being declared is the floats left and right: */
+
+.float-left {
+    float: left;
+    margin-right: 25px;
+}
+
+.float-right {
+    float: right;
+    margin-left: 25px;
+}
+
+/*
+
+    GROUPING together for shorter structure!
+
+*/
 
 .search-engine-optimization img , .online-reputation-management img , .social-media-marketing img {
     max-height: 200px;
@@ -210,7 +221,11 @@ p {
 
 */
 
-/* I'm going to combine the three again as well since they are the same format */
+/*
+
+    GROUPING together for shorter structure!
+
+*/
 
 .search-engine-optimization h2 , .online-reputation-management h2 , .social-media-marketing h2 {
     margin-bottom: 20px;
@@ -231,16 +246,119 @@ p {
 
 */
 
-.footer {
+
+/*  I'm going to take out the "." from the footer since it is identified as a semantic element and not a non-semantic  */
+
+/* ============== End of the Content section ============== */
+
+
+
+/* ============== Start of the Aside section ============== */
+
+.benefits {
+    margin-right: 20px;
+    padding: 20px;
+    clear: both;
+    float: right;
+    width: 20%;
+    height: 100%;
+    font-family: var(--font-family-one);
+    background-color: #2589bd;
+}
+
+/*
+
+    GROUPING together for shorter structure!
+
+*/
+
+.benefit-lead , .benefit-brand , .benefit-cost {
+    margin-bottom: 32px;
+    color: var(--main-white-color);
+}
+
+/*
+
+.benefit-brand {
+    margin-bottom: 32px;
+    color: var(--main-white-color);
+}
+
+.benefit-cost {
+    margin-bottom: 32px;
+    color: var(--main-white-color);
+}
+
+*/
+
+/* 
+    GROUPING together for shorter structure!
+
+    There's one more thing:  This has h3.  We need to change this to h2 to have them go with that structure.  Otherwise, if only h3 that changes is in html, this avoids it
+
+*/
+
+.benefit-lead h2 , .benefit-brand h2 , .benefit-cost h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/*
+
+.benefit-brand h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.benefit-cost h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+*/
+
+
+/* GROUPING together for shorter structure! */
+
+.benefit-lead img , .benefit-brand img ,  .benefit-cost img {
+    display: block;
+    margin: 10px auto;
+    max-width: 150px;
+}
+
+/*
+
+.benefit-brand img {
+    display: block;
+    margin: 10px auto;
+    max-width: 150px;
+}
+
+.benefit-cost img {
+    display: block;
+    margin: 10px auto;
+    max-width: 150px;
+}
+
+*/
+
+/* ============== End of the Aside section ============== */
+
+
+/* ============== Start of the Footer Section ============== */
+
+footer {
     padding: 30px;
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
 
-.footer h2 {
+footer h2 {
     font-size: 20px;
 }
+
+/* ============== End of the Footer Section ============== */
 
 
 /*One of the things I'm noticing is that with the removed comments if we were to do it here, that'll remove quite a number of lines out of the code. */
